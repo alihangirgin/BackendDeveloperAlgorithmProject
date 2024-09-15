@@ -1,0 +1,32 @@
+[
+  {
+    "from": "A",
+    "to": "B",
+    "duration_minutes": 15
+  },
+  {
+    "from": "A",
+    "to": "C",
+    "duration_minutes": 20
+  },
+  {
+    "from": "A",
+    "to": "D",
+    "duration_minutes": 10
+  },
+  {
+    "from": "B",
+    "to": "C",
+    "duration_minutes": 5
+  },
+  {
+    "from": "B",
+    "to": "D",
+    "duration_minutes": 25
+  },
+  {
+    "from": "C",
+    "to": "D",
+    "duration_minutes": 25
+  }
+]
