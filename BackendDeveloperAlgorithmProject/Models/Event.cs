@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
+﻿using System.Text.Json.Serialization;
 
 namespace BackendDeveloperAlgorithmProject.Models
 {
@@ -13,9 +7,11 @@ namespace BackendDeveloperAlgorithmProject.Models
         [JsonPropertyName("id")]
         public int Id { get; set; }
         [JsonPropertyName("start_time")]
-        public string StartTime { get; set; }
+        [JsonConverter(typeof(TimeSpanConverter))]
+        public TimeSpan StartTime { get; set; }
         [JsonPropertyName("end_time")]
-        public string EndTime { get; set; }
+        [JsonConverter(typeof(TimeSpanConverter))]
+        public TimeSpan EndTime { get; set; }
         [JsonPropertyName("location")]
         public string Location { get; set; }
         [JsonPropertyName("priority")]
