@@ -34,7 +34,7 @@ foreach (var newItem in orderedEvents.Skip(1))
         attendedTotalPriority += newItem.Priority;
         lastItem = newItem;
     }
-    else  // If the new event is before the old event ends, the new event can be preferred by priority
+    else  // If the new event is before the old event ends, the new event can be preferred insted of old by priority
     {
         if (newItem.Priority > lastItem.Priority)
         {
