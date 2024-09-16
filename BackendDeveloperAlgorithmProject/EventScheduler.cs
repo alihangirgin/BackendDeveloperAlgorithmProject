@@ -26,6 +26,11 @@ namespace BackendDeveloperAlgorithmProject
             return durations;
         }
 
+        private int GetTravelDuration(List<DurationBetweenLocation> durations, Event lastEvent, Event newEvent)
+        {
+            return durations.FirstOrDefault(x => (x.From == lastEvent.Location && x.To == newEvent.Location)
+                    || (x.From == newEvent.Location && x.To == lastEvent.Location))?.DurationMinutes ?? 0; // because B to A defined as A to B in json
+        }
 
         public void Schedule()
         {
@@ -47,8 +52,7 @@ namespace BackendDeveloperAlgorithmProject
 
             foreach (var newItem in orderedEvents.Skip(1))
             {
-                var travelDuration = durations.FirstOrDefault(x => (x.From == lastItem.Location && x.To == newItem.Location)
-                    || (x.From == newItem.Location && x.To == lastItem.Location))?.DurationMinutes ?? 0; // because B to A defined as A to B in json
+                var travelDuration = GetTravelDuration(durations, lastItem, newItem);
 
                 if (newItem.StartTime > lastItem.EndTime.Add(TimeSpan.FromMinutes(travelDuration)))  // new event is after the old event is over.
                 {
